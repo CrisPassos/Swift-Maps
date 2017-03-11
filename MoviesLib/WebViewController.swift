@@ -11,6 +11,8 @@ import UIKit
 class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
+    
     var url: String!
     
     override func viewDidLoad() {
@@ -40,5 +42,9 @@ extension WebViewController: UIWebViewDelegate{
         }
         
        return true
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        loading.stopAnimating()
     }
 }
